@@ -1,5 +1,5 @@
 %h1 Yes, it shipped!
 
 %ul
-- @releases.each do |r|
+- @releases.reverse_each do |r|
   %li #{time_ago_in_words(r.release_date_time)} ago: #{link_to(r.project, r.project_url)} #{link_to(r.version, r.release_url)}
