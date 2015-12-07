@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-  get 'releases/index'
+  get 'releases', to: 'releases#index'
 
-  get 'releases/create'
+  post 'releases', to: 'releases#create'
+
+  root 'releases#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

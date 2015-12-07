@@ -11,8 +11,14 @@ RSpec.describe ReleasesController, type: :controller do
 
   describe "POST #create" do
     it "returns http success" do
-      post :create
-      expect(response).to have_http_status(:success)
+      expect {
+        post :create, {version: "0.0.1", project: "dummy"}
+        expect(response).to have_http_status(:success)
+      }.to change {
+        Release.count
+      }.by(1)
+
+      expect(Release.last.version).to eq("0.0.1")
     end
   end
 

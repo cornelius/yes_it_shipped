@@ -1,5 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Release, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "fails when empty" do
+    expect {
+      Release.create!
+    }.to raise_error(ActiveRecord::RecordInvalid)
+  end
 end

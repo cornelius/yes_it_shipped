@@ -1,2 +1,6 @@
-%h1 Releases#index
-%p Find me in app/views/releases/index.html.haml
+%h1 Releases
+
+- @releases.each do |r|
+  %p
+    = r.project
+    = r.version
