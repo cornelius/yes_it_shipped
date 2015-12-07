@@ -1,0 +1,15 @@
+default: &default
+  adapter: postgresql
+  username: cs
+
+development:
+  <<: *default
+  database: yis_development
+
+test:
+  <<: *default
+  database: yis_test
+
+production:
+  <<: *default
+  database: yis_production
