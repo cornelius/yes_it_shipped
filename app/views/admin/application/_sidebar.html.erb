@@ -1,0 +1,21 @@
+<%#
+# Sidebar
+
+This partial is used to display the sidebar in Administrate.
+By default, the sidebar contains navigation links
+for all resources in the admin dashboard,
+as defined by the DashboardManifest.
+%>
+
+<ul class="sidebar__list">
+  <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'sidebar__link'  %></li>
+  <% DashboardManifest::DASHBOARDS.each do |resource| %>
+    <li>
+      <%= link_to(
+        resource.to_s.capitalize,
+        [Administrate::NAMESPACE, resource],
+        class: "sidebar__link sidebar__link--#{nav_link_state(resource)}"
+      ) %>
+    </li>
+  <% end %>
+</ul>
