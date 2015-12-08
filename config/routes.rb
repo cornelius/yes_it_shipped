@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'releases/:project/:version', to: 'releases#show', constraints: { version: /[^\/]+/}
+
   get 'releases', to: 'releases#index'
 
   post 'releases', to: 'releases#create'

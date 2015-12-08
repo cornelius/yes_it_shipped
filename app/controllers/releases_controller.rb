@@ -12,4 +12,8 @@ class ReleasesController < ApplicationController
 
     render plain: "ok"
   end
+
+  def show
+    render json: Release.where(project: params[:project], version: params[:version]).last
+  end
 end
