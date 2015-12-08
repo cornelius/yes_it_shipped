@@ -1,7 +1,7 @@
 .container
   %h1.title RELEASES
   #timeline
-    - @releases.each do |r|
+    - @releases.reverse_each do |r|
       .timeline-item
         .timeline-icon
         .timeline-ago
