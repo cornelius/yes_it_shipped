@@ -1,0 +1,187 @@
+@import "bourbon";
+@import "base/base";
+@import "neat";
+
+%clearfix {
+	&:after, &:before {
+		content: '';
+		display: block;
+		width: 100%;
+		clear: both;
+	}
+}
+
+@mixin prefix($prop, $val) {
+	@each $prefix in '-webkit-', '-moz-', '-ms-', '' {
+		#{$prefix}#{$prop}: $val;
+	}
+}
+
+*, *:before, *:after {
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+
+body {
+	@include outer-container;
+
+	background: $white;
+	background-size: cover;
+	font-family: $base-font-family;
+	line-height: 20px;
+	font-size: 14px;
+	color: $base-font-color;
+}
+
+header {
+	background: $blue;
+	padding: 10px;
+	height: 60px;
+	@include prefix(box-shadow, 0 3px 3px rgba(0,0,0,0.05));
+	@extend %clearfix;
+
+	h1 {
+		color: $green;
+		float: left;
+		line-height: 40px;
+		font:{
+			size: 22px;
+			weight: 500;
+		}
+	}
+}
+
+#timeline {
+	width: 100%;
+	margin: 30px auto;
+	position: relative;
+	padding: 0 10px;
+	@include prefix(transition, all .4s ease);
+
+	&:before {
+		content:"";
+		width: 3px;
+		height: 100%;
+		background: $green;
+		left: 79%;
+		top: 0;
+		position: absolute;
+	}
+
+	&:after {
+		content: "";
+		clear: both;
+		display: table;
+		width: 100%;
+	}
+
+	.timeline-item {
+		margin-bottom: 25px;
+		position: relative;
+		@extend %clearfix;
+
+		.timeline-icon {
+			background: $green;
+			width: 15px;
+			height: 15px;
+			position: absolute;
+			top: 0;
+			left: 79%;
+			overflow: hidden;
+			margin-top: 20px;
+			@include prefix(border-radius, 50%);
+		}
+
+    .timeline-ago {
+			position: absolute;
+			top: 16px;
+			left: 84%;
+      color: $medium-gray;
+    }
+
+		.timeline-content {
+			width: 75%;
+			background: #fff;
+			padding: 0px;
+			@include prefix(box-shadow, 0 4px 0 rgba(0,0,0,0.1));
+			@include prefix(border-radius, 5px);
+			@include prefix(transition, all .3s ease);
+
+			h2 {
+				padding: 15px;
+				background: $green;
+				color: #fff;
+				margin: -11px 0px 0px 0px;
+				font-weight: 500;
+				font-size: 1.2em;
+				@include prefix(border-radius, 3px);
+			}
+
+			&:before {
+				content: '';
+				position: absolute;
+				left: 75%;
+				top: 20px;
+				width: 0;
+				height: 0;
+				border-top: 7px solid transparent;
+				border-bottom: 7px solid transparent;
+				border-left:7px solid $green;
+			}
+
+			&.right {
+				float: right;
+
+				&:before {
+					content: '';
+					right: 45%;
+					left: inherit;
+					border-left: 0;
+					border-right: 7px solid $green;
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 768px) {
+	#timeline {
+		margin: 30px;
+		padding: 0px;
+		width: 90%;
+		&:before {
+			left: 0;
+		}
+
+		.timeline-item {
+			.timeline-content {
+				width: 95%;
+				float: right;
+        margin-top: 10px;
+
+				&:before, &.right:before {
+					left: 5%;
+					margin-left: -6px;
+					border-left: 0;
+					border-right: 7px solid $green;
+				}
+			}
+
+      .timeline-ago {
+        display: none;
+      }
+
+			.timeline-icon {
+				left: -6px;
+			}
+		}
+	}
+}
+
+.container {
+  .title {
+    text-align: center;
+    padding: 10px 0;
+  }
+}
