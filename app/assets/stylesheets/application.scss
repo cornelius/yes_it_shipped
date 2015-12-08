@@ -185,3 +185,70 @@ header {
     padding: 10px 0;
   }
 }
+
+.form {
+  max-width:600px;
+  margin:40px auto;
+  border-radius:4px;
+
+  form {
+    border-left: 1px solid $green;
+    border-right: 1px solid $green;
+    border-bottom: 1px solid $green;
+    padding: 25px;
+  }
+}
+
+.button {
+  background-color: #27576B;
+  border: 0;
+  border-radius: 3px;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+  font-size: 1em;
+  -webkit-font-smoothing: antialiased;
+  font-weight: 600;
+  line-height: 1;
+  padding: 0.75em 1.5em;
+  text-decoration: none;
+  transition: background-color 150ms ease;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  &:hover, &:focus {
+    background:rgba($blue,.9);
+    color: $white;
+  }
+}
+
+.tab-group {
+  list-style:none;
+  padding:0;
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  li a {
+    display:block;
+    text-decoration:none;
+    padding:15px;
+    background:$blue;
+    color:$white;
+    font-size:20px;
+    float:left;
+    width:50%;
+    text-align:center;
+    cursor:pointer;
+    transition:.5s ease;
+  }
+  .active a {
+    background:$white;
+    color:$green;
+    border-top: 1px solid;
+    border-left: 1px solid;
+    border-right: 1px solid;
+  }
+}
