@@ -33,6 +33,11 @@ RSpec.describe ReleasesController, type: :controller do
       expect(response).to have_http_status(:success)
       expect(response.body).to eq(release.to_json)
     end
+
+    it "returns 404 if release doesn't exist" do
+      get :show, {project: "dummy", version: "42.x"}
+      expect(response).to have_http_status(404)
+    end
   end
 
 end

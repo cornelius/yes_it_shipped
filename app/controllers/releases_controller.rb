@@ -14,6 +14,11 @@ class ReleasesController < ApplicationController
   end
 
   def show
-    render json: Release.where(project: params[:project], version: params[:version]).last
+    release = Release.where(project: params[:project], version: params[:version]).last
+    if release
+      render json: release
+    else
+      render plain: "not found", status: 404
+    end
   end
 end
