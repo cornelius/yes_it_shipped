@@ -1,13 +1,48 @@
 .container
-  %h1.title RELEASES
-  #timeline
-    - @releases.reverse_each do |r|
-      .timeline-item
-        .timeline-icon
-        .timeline-ago
-          %span.timestring{datetime: r.release_date_time.to_formatted_s(:iso8601)}
-            = "#{time_ago_in_words(r.release_date_time)} ago"
-        .timeline-content
-          %h2
-            = link_to(r.project, r.project_url)
-            = link_to(r.version, r.release_url)
+  .column
+    %h1.title GETTING STARTED
+    .box
+      %h2 What's all the fuzz about?
+      %p
+        = link_to "Yes, Ship It!", "https://github.com/cornelius/yes_ship_it"
+        takes the fragility of any release script and converts it into a set of
+        steps that are easy to track and reproduce. Releasing then becomes a
+        trivial, stress free, dare I say fun? part of your development flow, so
+        you can go back to focus on what matters most to your users.
+      %p
+        This is how you use it for your own project:
+      %h2 Install the gem
+      %p
+        %pre
+          %code
+            $ gem install yes_ship_it
+      %h2 Configure your project
+      %p
+        %pre
+          %code
+            $ yes_ship_it init
+      %h2 Ship it!
+      %p
+        %pre
+          %code
+            $ yes_ship_it
+      %h2 Want to know more?
+      %p
+        Just visit the
+        = link_to "Yes, Ship It!", "https://github.com/cornelius/yes_ship_it"
+        website for detailed information on how it works and how to adapt it for
+        your own project.
+
+  .column
+    %h1.title LATEST RELEASES
+    #timeline
+      - @releases.reverse_each do |r|
+        .timeline-item
+          .timeline-icon
+          .timeline-ago
+            %span.timestring{datetime: r.release_date_time.to_formatted_s(:iso8601)}
+              = "#{time_ago_in_words(r.release_date_time)} ago"
+          .timeline-content
+            %h2
+              = link_to(r.project, r.project_url)
+              = link_to(r.version, r.release_url)

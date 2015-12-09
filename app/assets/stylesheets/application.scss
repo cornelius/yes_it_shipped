@@ -254,3 +254,34 @@ header {
     border-right: 1px solid;
   }
 }
+
+.container {
+  @include span-columns(12);
+}
+
+.column {
+  @include span-columns(6);
+}
+
+.box {
+  height: 100%;
+  background: #fff;
+  padding: 30px;
+  font-size: 1.2em;
+  margin-bottom: 20px;
+  @include prefix(box-shadow, 0 4px 0 rgba(0,0,0,0.1));
+  @include prefix(border-radius, 5px);
+  @include prefix(transition, all .3s ease);
+
+  a {
+    font-weight: bold;
+  }
+}
+
+pre {
+  code {
+    background: $light-gray;
+    @include prefix(border-radius, 5px);
+    padding: 5px 15px;
+  }
+}
