@@ -1,6 +1,8 @@
 @import "bourbon";
 @import "base/base";
 @import "neat";
+@import "font-awesome";
+@import "refills/footer-2";
 
 %clearfix {
 	&:after, &:before {
