@@ -5,7 +5,7 @@
       .timeline-item
         .timeline-icon
         .timeline-ago
-          %span
+          %span.timestring{datetime: r.release_date_time.to_formatted_s(:iso8601)}
             = "#{time_ago_in_words(r.release_date_time)} ago"
         .timeline-content
           %h2
