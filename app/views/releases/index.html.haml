@@ -40,7 +40,7 @@
         .timeline-item
           .timeline-icon
           .timeline-ago
-            %span.timestring{datetime: r.release_date_time.to_formatted_s(:iso8601)}
+            %span
               = "#{time_ago_in_words(r.release_date_time)} ago"
           .timeline-content
             %h2
