@@ -36,7 +36,7 @@
   .column
     %h1.title LATEST RELEASES
     #timeline
-      - @releases.reverse_each do |r|
+      - @releases.each do |r|
         .timeline-item
           .timeline-icon
           .timeline-ago

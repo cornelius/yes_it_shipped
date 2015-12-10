@@ -1,6 +1,6 @@
 class ReleasesController < ApplicationController
   def index
-    @releases = Release.all
+    @releases = Release.order(release_date_time: :desc).limit(10)
   end
 
   def create
