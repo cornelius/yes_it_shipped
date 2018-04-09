@@ -28,7 +28,7 @@ RSpec.describe ReleasesController, type: :controller do
 
   describe "GET #release" do
     it "returns data about release" do
-      release = FactoryGirl.create(:release)
+      release = FactoryBot.create(:release)
       get :show, {project: "dummy", version: "1.0"}
       expect(response).to have_http_status(:success)
       expect(response.body).to eq(release.to_json)

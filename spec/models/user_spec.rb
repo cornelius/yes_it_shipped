@@ -22,7 +22,7 @@ RSpec.describe User, type: :model do
 
     context "if it's not the first user to be created" do
       before(:each) do
-        FactoryGirl.create(:user)
+        FactoryBot.create(:user)
       end
 
       it "gets normal rights" do
