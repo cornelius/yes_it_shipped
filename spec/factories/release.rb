@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :release do
     project "dummy"
     version "1.0"
