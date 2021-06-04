@@ -8,9 +8,10 @@ Rails.application.routes.draw do
 
   end
 
-  devise_for :users, :path => 'admin',
-    :path_names => {:sign_in => 'login', :sign_out => 'logout'},
-    :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  devise_for :users,
+             path: 'admin',
+             path_names: { sign_in: 'login', sign_out: 'logout' },
+             controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
 
   get 'releases/:project/:version', to: 'releases#show', constraints: { version: /[^\/]+/}

@@ -28,11 +28,13 @@ gem 'jbuilder', '~> 2.5'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+gem 'bootsnap'
 gem 'haml-rails'
 gem 'bourbon'
 gem 'neat', '~> 1.9'
 gem 'devise'
 gem 'administrate'
+gem 'omniauth-rails_csrf_protection'
 gem 'omniauth-github'
 gem 'font-awesome-rails'
 
