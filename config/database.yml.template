@@ -1,6 +1,7 @@
 default: &default
   adapter: postgresql
-  username: USERNAME
+  username: postgres
+  password: postgres
 
 development:
   <<: *default
