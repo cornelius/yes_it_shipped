@@ -1,0 +1,54 @@
+name: CI for Push
+
+on:
+  push: 
+    branches: [master]
+
+jobs:
+  tests:
+    runs-on: ubuntu-20.04
+
+    env:
+      RAILS_ENV: test
+      PGUSER: postgres
+      PGPASS: postgres
+
+    services:
+      postgres:
+        image: postgres:12
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: listminut_test
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+    - name: Cache gems
+      uses: actions/cache@v2
+      with:
+        path: vendor/bundle
+        key: ${{ runner.os }}-build-${{ hashFiles('**/Gemfile.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-build-
+    - name: Install gems
+      run: |
+        bundle config path vendor/bundle
+        bundle config set without 'default doc job cable storage ujs test db'
+        bundle install --jobs 4 --retry 3
+    - name: Setup DB
+      run: |
+        bundle exec rails db:drop
+        bundle exec rails db:create
+        bundle exec rails db:structure:load
+    - name: Run tests
+      run: |
+        bundle exec rake
