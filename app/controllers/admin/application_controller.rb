@@ -5,8 +5,7 @@
 # If you want to add pagination or other controller-level concerns,
 # you're free to overwrite the RESTful controller actions.
 class Admin::ApplicationController < Administrate::ApplicationController
-  before_filter :authenticate_user!
-  # before_action :authenticate_admin
+  before_action :authenticate_admin
 
   # Override this value to specify the number of elements to display at a time
   # on index pages. Defaults to 20.
