@@ -3,10 +3,11 @@
   Uncomment this whole section for a sticky footer. The content of the page should be inside of this .wrapper-for-content-outside-of-footer
   </div>
 %footer.footer-2{:role => "contentinfo"}
-  %ul
-    %li
-      = link_to "About", "https://hackweek.suse.com/13/projects/1266"
-  .footer-secondary-links
-    %ul.footer-social
+  %div.full
+    %ul
       %li
-        = link_to fa_icon("github 2x"), "https://github.com/cornelius/yes_it_shipped"
+        = link_to "About", "https://hackweek.suse.com/13/projects/1266"
+    .footer-secondary-links
+      %ul.footer-social
+        %li
+          = link_to fa_icon("github 2x"), "https://github.com/cornelius/yes_it_shipped"
